@@ -11,6 +11,19 @@ function Notes() {
     const [values, setValues] = useState([]);
     const [editIndex, setEditIndex] = useState(-1);
 
+    useEffect(() => {
+        // Retrieve data from localStorage on component mount
+        const storedValues = JSON.parse(localStorage.getItem("notes"));
+        if (storedValues) {
+          setValues(storedValues);
+        }
+      }, []);
+    
+      useEffect(() => {
+        // Save data to localStorage whenever 'values' changes
+        localStorage.setItem("notes", JSON.stringify(values));
+      }, [values]);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setNote((prevNote) => {
