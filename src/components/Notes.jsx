@@ -29,78 +29,75 @@ function Notes() {
         }
       
         if (editIndex === -1) {
-          setValues((prevValues) => [...prevValues, note]);
+            setValues((prevValues) => [...prevValues, note]);
         } else {
-          const updatedItems = [...values];
-          updatedItems[editIndex] = {
-            title: note.title,
-            content: note.content
-          };
-          setValues(updatedItems);
-          setEditIndex(-1);
+            const updatedItems = [...values];
+            updatedItems[editIndex] = {
+                title: note.title,
+                content: note.content
+            };
+            setValues(updatedItems);
+            setEditIndex(-1);
         }
       
         setNote({
-          title: "",
-          content: ""
+            title: "",
+            content: ""
         });
-      };
+    };
 
-      const deleteNote = (id) => {
+    const deleteNote = (id) => {
         setValues((prevValues) => prevValues.filter((_, index) => index !== id));
-      };
+    };
       
-      const EditNote = (id) => {
+    const EditNote = (id) => {
         setEditIndex(id);
         setNote({
-          title: values[id].title,
-          content: values[id].content
+            title: values[id].title,
+            content: values[id].content
         });
-      };
+    };
 
-      //saving data to local storage
-        // Save data to local storage when 'values' changes
-
-      return (
+    return (
         <div className="main">
-          <div className="create-note-container">
-            <form className="create-note" action="">
-              <input
-                name="title"
-                onChange={handleChange}
-                value={note.title}
-                placeholder="Judul..."
-                type="text"
-              />
-              <textarea
-                name="content"
-                onChange={handleChange}
-                value={note.content}
-                placeholder="Isi..."
-                rows={5}
-                type="text"
-              />
+            <div className="create-note-container">
+                <form className="create-note" action="">
+                    <input
+                        name="title"
+                        onChange={handleChange}
+                        value={note.title}
+                        placeholder="Judul..."
+                        type="text"
+                    />
+                    <textarea
+                        name="content"
+                        onChange={handleChange}
+                        value={note.content}
+                        placeholder="Isi..."
+                        rows={5}
+                        type="text"
+                    />
+
+                    <button onClick={handleSubmit}>
+                        {editIndex === -1 ? "Create" : "Update"}
+                    </button>
+                </form>
+            </div>
     
-              <button onClick={handleSubmit}>
-                {editIndex === -1 ? "Create" : "Update"}
-              </button>
-            </form>
-          </div>
-        
-          {values &&
-            values.map((item, index) => {
-              return (
-                <NoteCard
-                  key={index}
-                  id={index}
-                  title={item.title}
-                  content={item.content}
-                  onDelete={deleteNote}
-                  onEdit={() => EditNote(index)}
-                />
-              );
+            {values &&
+                values.map((item, index) => {
+                return (
+                    <NoteCard
+                    key={index}
+                    id={index}
+                    title={item.title}
+                    content={item.content}
+                    onDelete={deleteNote}
+                    onEdit={() => EditNote(index)}
+                    />
+                );
             })}
         </div>
-      );
+    );
 }
 export default Notes;
