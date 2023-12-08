@@ -1,0 +1,99 @@
+body {
+  background: rgb(255, 52, 52);
+  background-image: url("../public/desktop-1920x1080.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+
+
+.note {
+  background: #fff;
+  border-radius: 7px;
+  padding: 20px;
+  width: 267px;
+  margin: 16px;
+  float: left;
+}
+.note h1 {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.note p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px;
+}
+.note-footer button {
+  background: rgb(37, 167, 206);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  width: 125px;
+  height: 30px;
+  margin-top: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
+
+
+
+
+
+.create-note-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.create-note {
+  position: relative;
+  width: 800px;
+  margin: 30px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+}
+.create-note input,
+.create-note textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+}
+.create-note textarea {
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1px solid rgb(196, 190, 190);
+}
+.create-note button {
+  background: rgb(37, 167, 206);
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  font-size: 1.1em;
+  letter-spacing: 0.2em;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
